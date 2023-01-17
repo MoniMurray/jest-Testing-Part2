@@ -10,10 +10,18 @@ function newGame() {
     game.playerMoves = [];
     game.currentGame = [];
     showScore();
+    addTurn();
 }
 
 function showScore() {
     document.getElementById("score").innerText = game.score;
 }
 
-module.exports = { game, newGame, showScore };
+// needs to do 3 things - clear the playerMoves, add at random one of the buttons from the choices array, and showTurns()
+function addTurn() {
+    game.playerMoves = [];
+    game.currentGame.push(game.choices[(Math.floor(Math.random()*4))]);
+    // showTurns();
+}
+
+module.exports = { game, newGame, showScore, addTurn };
